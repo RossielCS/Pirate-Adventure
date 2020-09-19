@@ -2,9 +2,13 @@
   "name": "platform-game",
   "version": "1.0.0",
   "description": "This project consist on building a video game using JavaScript and the game engine Phaser.",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open",
+    "test": "jest",
+    "watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -25,6 +29,7 @@
     "stylelint-csstree-validator": "^1.8.0",
     "stylelint-scss": "^3.17.2",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
