@@ -1,5 +1,10 @@
-function test() {
-  document.getElementById('content').innerHTML = 'HI!';
-}
+import Phaser from 'phaser';
+import SimpleScene from './scenes/simple-scene';
 
-test();
+const gameConfig = {
+  width: 680,
+  height: 400,
+  scene: SimpleScene,
+};
+
+new Phaser.Game(gameConfig);
