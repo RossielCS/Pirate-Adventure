@@ -8,7 +8,6 @@ class Boot extends Phaser.Scene {
 
   preload() {
     this.load.image('logo', coke);
-    console.log('boot');
   }
 
   create() {
