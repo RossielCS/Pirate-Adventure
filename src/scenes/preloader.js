@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import player from '../assets/images/player1.png';
+import blueButton02 from '../assets/ui/blue_button02.png';
+import blueButton03 from '../assets/ui/blue_button03.png';
 
 class Preloader extends Phaser.Scene {
   constructor() {
@@ -12,7 +14,7 @@ class Preloader extends Phaser.Scene {
 
   preload() {
     // add logo image
-    // this.add.image(400, 200, 'logo');
+    this.add.image(340, 80, 'logo');
 
     // display progress bar
     const progressBar = this.add.graphics();
@@ -77,9 +79,11 @@ class Preloader extends Phaser.Scene {
       this.ready();
     });
 
-    this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
+    this.timedEvent = this.time.delayedCall(1000, this.ready, [], this);
 
     this.load.image('player', player);
+    this.load.image('blueButton1', blueButton02);
+    this.load.image('blueButton2', blueButton03);
   }
 
   ready() {

@@ -7,8 +7,9 @@ class Game extends Phaser.Scene {
 
   preload() {
   }
-   
+
   create() {
+    this.add.image(100, 100, 'player');
   }
 }
 
