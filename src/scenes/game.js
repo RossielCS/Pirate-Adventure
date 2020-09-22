@@ -19,30 +19,34 @@ class Game extends Phaser.Scene {
     this.bgBottom = this.add.tileSprite(0, 246, width, 154, 'bgImgBottom');
     this.bgBottom.setOrigin(0, 0);
     this.bgBottom.setScrollFactor(0);
-    /*
-    this.platforms = this.physics.add.group();
-    this.platforms.create(0, 200, 'platformImg');
-    this.platforms.create(100, 200, 'platformImg');
-    */
+
+    this.platforms = this.physics.add.group({
+      key: 'terrain',
+      repeat: 1,
+      setXY: {
+        x: 0,
+        y: 200,
+        stepX: 300,
+      },
+      setScale: {
+        x: 1.5,
+        y: 1.5,
+      },
+    });
+    this.platforms.children.iterate(x => {
+      x.body.setAllowGravity(false);
+      x.setImmovable(true);
+    });
+
     this.atlasTexture = this.textures.get('terrain');
     this.frames = this.atlasTexture.getFrameNames();
-    this.plat1 = this.physics.add.sprite(0, 200, 'terrain', 'platform1');
-    this.plat1.body.setAllowGravity(false);
-    this.plat1.setImmovable(true);
-    this.plat2 = this.physics.add.sprite(100, 200, 'terrain', 'platform1');
-    this.plat2.body.setAllowGravity(false);
-    this.plat2.setImmovable(true);
-    this.plat3 = this.physics.add.sprite(300, 200, 'terrain', 'platform1');
-    this.plat3.body.setAllowGravity(false);
-    this.plat3.setImmovable(true);
 
     this.player = this.physics.add.image(0, 0, 'player');
     this.player.setBounceY(0.2);
+    this.player.setOrigin(0, 0);
     this.player.setGravityY(gameOptions.playerGravity);
 
-    this.physics.add.collider(this.player, this.plat1);
-    this.physics.add.collider(this.player, this.plat2);
-    this.physics.add.collider(this.player, this.plat3);
+    this.physics.add.collider(this.player, this.platforms);
 
     this.cursors = this.input.keyboard.createCursorKeys();
   }
