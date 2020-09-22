@@ -5,6 +5,7 @@ const config = {
   parent: 'content',
   width: 680,
   height: 400,
+  pixelArt: true,
   physics: {
     default: 'arcade',
     arcade: {

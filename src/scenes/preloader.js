@@ -2,6 +2,9 @@ import Phaser from 'phaser';
 import player from '../assets/images/player1.png';
 import blueButton02 from '../assets/ui/blue_button02.png';
 import blueButton03 from '../assets/ui/blue_button03.png';
+import bgImg from '../assets/images/background/bg-image.png';
+import bgImgTop from '../assets/images/background/additional-sky-top.png';
+import bgImgBottom from '../assets/images/background/additional-sky-bottom.png';
 
 class Preloader extends Phaser.Scene {
   constructor() {
@@ -81,13 +84,17 @@ class Preloader extends Phaser.Scene {
 
     this.timedEvent = this.time.delayedCall(1000, this.ready, [], this);
 
+    // load assets
     this.load.image('player', player);
     this.load.image('blueButton1', blueButton02);
     this.load.image('blueButton2', blueButton03);
+    this.load.image('bgImg', bgImg);
+    this.load.image('bgImgTop', bgImgTop);
+    this.load.image('bgImgBottom', bgImgBottom);
   }
 
   ready() {
-    // this.scene.start('Title');
+    this.scene.start('Game');
     this.readyCount += 1;
     if (this.readyCount === 2) {
       this.scene.start('Title');
