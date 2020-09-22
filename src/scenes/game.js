@@ -38,6 +38,8 @@ class Game extends Phaser.Scene {
 
     this.player = this.physics.add.image(0, 0, 'player');
     this.player.setBounceY(0.2);
+    this.player.setGravityY(gameOptions.playerGravity);
+
     this.physics.add.collider(this.player, this.plat1);
     this.physics.add.collider(this.player, this.plat2);
     this.physics.add.collider(this.player, this.plat3);
@@ -45,7 +47,22 @@ class Game extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys();
   }
 
-  
+  update() {
+    if (this.cursors.left.isDown) {
+      this.player.setVelocityX(-160);
+      // this.player.anims.play('left', true);
+    } else if (this.cursors.right.isDown) {
+      this.player.setVelocityX(160);
+      // this.player.anims.play('right', true);
+    } else {
+      this.player.setVelocityX(0);
+      // this.player.anims.play('turn');
+    }
+
+    if (this.cursors.up.isDown && this.player.body.touching.down) {
+      this.player.setVelocityY(-330);
+    }
+  }
 }
 
 export default Game;
