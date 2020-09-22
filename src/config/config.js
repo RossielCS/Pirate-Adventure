@@ -5,6 +5,13 @@ const config = {
   parent: 'content',
   width: 680,
   height: 400,
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: { y: 300 },
+      debug: false,
+    },
+  },
 };
 
 export default config;
