@@ -34,21 +34,19 @@ class Game extends Phaser.Scene {
       },
       active: true,
       visible: true,
+
       removeCallback: (x) => {
-        x.disableBody(true, true);
-        x.scene.platformsPool.add(x);
+        x.scene.platforms.add(x);
+        x.body.allowGravity = false;
+        x.enableBody(true, 0, (Math.random() * 100) + 150, true, true);
+        x.setVelocityX(200);
       },
     });
 
     this.platforms.children.iterate(x => {
       x.body.setAllowGravity(false);
       x.setImmovable(true);
-    });
-
-    this.platformsPool = this.add.group({
-      removeCallback: (x) => {
-        x.scene.platforms.add(x);
-      },
+      x.setVelocityX(200);
     });
 
     this.atlasTexture = this.textures.get('terrain');
@@ -81,15 +79,12 @@ class Game extends Phaser.Scene {
     if (this.cursors.up.isDown && this.player.body.touching.down) {
       this.player.setVelocityY(-330);
     }
-    /*
-    this.platforms.getChildren().forEach(x => {
-      this.platforms.remove(x);
-    });
 
-    this.platformsPool.getChildren().forEach(x => {
-      this.platformsPool.remove(x);
+    this.platforms.getChildren().forEach(x => {
+      if (x.x > this.sys.game.config.width - 100) {
+        this.platforms.remove(x);
+      }
     });
-    */
   }
 }
 
