@@ -22,31 +22,25 @@ class Game extends Phaser.Scene {
 
     this.platforms = this.physics.add.group({
       key: 'terrain',
-      repeat: 1,
+      repeat: 4,
       setXY: {
-        x: 1,
+        x: 0,
         y: 200,
         stepX: 300,
       },
       setScale: {
-        x: 1.5,
-        y: 1.5,
+        x: 1,
+        y: 1,
       },
       active: true,
       visible: true,
-
-      removeCallback: (x) => {
-        x.scene.platforms.add(x);
-        x.body.allowGravity = false;
-        x.enableBody(true, 0, (Math.random() * 100) + 150, true, true);
-        x.setVelocityX(200);
+      velocityX: 0,
+      allowGravity: false,
+      immovable: true,
+      runChildUpdate: (x) => {
+        x.x = width;
+        x.y = (Math.random() * 100) + 150;
       },
-    });
-
-    this.platforms.children.iterate(x => {
-      x.body.setAllowGravity(false);
-      x.setImmovable(true);
-      x.setVelocityX(200);
     });
 
     this.atlasTexture = this.textures.get('terrain');
@@ -57,6 +51,7 @@ class Game extends Phaser.Scene {
     this.player.setBounceY(0.2);
     this.player.setOrigin(0, 0);
     this.player.setGravityY(gameOptions.playerGravity);
+    this.player.doubleJump = null;
 
     this.physics.add.collider(this.player, this.platforms);
 
@@ -64,7 +59,17 @@ class Game extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys();
   }
 
+  startGame() {
+    this.platforms.getChildren().forEach(x => {
+      x.body.setVelocityX(-200);
+    });
+  }
+
   update() {
+    this.input.keyboard.on('keydown', () => {
+      if (this.platforms.getChildren()[0].body.velocity.x === 0) this.startGame();
+    });
+
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-160);
       // this.player.anims.play('left', true);
@@ -76,15 +81,23 @@ class Game extends Phaser.Scene {
       // this.player.anims.play('turn');
     }
 
-    if (this.cursors.up.isDown && this.player.body.touching.down) {
-      this.player.setVelocityY(-330);
+    if (Phaser.Input.Keyboard.JustDown(this.cursors.up)) {
+      if (this.player.body.touching.down) {
+        this.player.doubleJump = true;
+        this.player.setVelocityY(-330);
+      } else if (this.player.doubleJump) {
+        this.player.doubleJump = false;
+        this.player.setVelocityY(-330);
+      }
     }
 
     this.platforms.getChildren().forEach(x => {
-      if (x.x > this.sys.game.config.width - 100) {
-        this.platforms.remove(x);
+      if (x.x < -100) {
+        this.platforms.runChildUpdate(x);
       }
     });
+
+    if (this.player.y > this.sys.game.config.height) this.scene.start('Game');
   }
 }
 
