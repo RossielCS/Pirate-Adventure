@@ -24,7 +24,7 @@ class Game extends Phaser.Scene {
       key: 'terrain',
       repeat: 1,
       setXY: {
-        x: 0,
+        x: 1,
         y: 200,
         stepX: 300,
       },
@@ -32,15 +32,29 @@ class Game extends Phaser.Scene {
         x: 1.5,
         y: 1.5,
       },
+      active: true,
+      visible: true,
+      removeCallback: (x) => {
+        x.disableBody(true, true);
+        x.scene.platformsPool.add(x);
+      },
     });
+
     this.platforms.children.iterate(x => {
       x.body.setAllowGravity(false);
       x.setImmovable(true);
     });
 
+    this.platformsPool = this.add.group({
+      removeCallback: (x) => {
+        x.scene.platforms.add(x);
+      },
+    });
+
     this.atlasTexture = this.textures.get('terrain');
     this.frames = this.atlasTexture.getFrameNames();
 
+    // Player
     this.player = this.physics.add.image(0, 0, 'player');
     this.player.setBounceY(0.2);
     this.player.setOrigin(0, 0);
@@ -48,6 +62,7 @@ class Game extends Phaser.Scene {
 
     this.physics.add.collider(this.player, this.platforms);
 
+    // Cursors
     this.cursors = this.input.keyboard.createCursorKeys();
   }
 
@@ -66,6 +81,15 @@ class Game extends Phaser.Scene {
     if (this.cursors.up.isDown && this.player.body.touching.down) {
       this.player.setVelocityY(-330);
     }
+    /*
+    this.platforms.getChildren().forEach(x => {
+      this.platforms.remove(x);
+    });
+
+    this.platformsPool.getChildren().forEach(x => {
+      this.platformsPool.remove(x);
+    });
+    */
   }
 }
 
