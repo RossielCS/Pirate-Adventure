@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { gameOptions } from '../config/config';
+import createPlatform from '../game-objects/platform';
 
 class Game extends Phaser.Scene {
   constructor() {
@@ -8,40 +9,21 @@ class Game extends Phaser.Scene {
 
   create() {
     const { width, height } = this.sys.game.config;
-    this.bgTop = this.add.tileSprite(0, 0, width, 150, 'bgImgTop');
-    this.bgTop.setOrigin(0, 0);
-    this.bgTop.setScrollFactor(0);
 
-    this.bgImg = this.add.tileSprite(0, 150, width, 96, 'bgImg');
-    this.bgImg.setOrigin(0, 0);
-    this.bgImg.setScrollFactor(0);
+    // Backgrounds
+    const bgAttributes = {
+      0: [0, 0, width, 150, 'bgImgTop'],
+      1: [0, 150, width, 96, 'bgImg'],
+      2: [0, 246, width, 154, 'bgImgBottom'],
+    };
+    for (let i = 0; i < 3; i += 1) {
+      this.bg = this.add.tileSprite(...bgAttributes[i]);
+      this.bg.setOrigin(0, 0);
+      this.bg.setScrollFactor(0);
+    }
 
-    this.bgBottom = this.add.tileSprite(0, 246, width, 154, 'bgImgBottom');
-    this.bgBottom.setOrigin(0, 0);
-    this.bgBottom.setScrollFactor(0);
-
-    this.platforms = this.physics.add.group({
-      key: 'terrain',
-      repeat: 4,
-      setXY: {
-        x: 0,
-        y: 200,
-        stepX: 300,
-      },
-      setScale: {
-        x: 1,
-        y: 1,
-      },
-      active: true,
-      visible: true,
-      velocityX: 0,
-      allowGravity: false,
-      immovable: true,
-      runChildUpdate: (x) => {
-        x.x = width;
-        x.y = (Math.random() * 100) + 150;
-      },
-    });
+    // Platforms
+    this.platforms = this.physics.add.group(createPlatform(4, 0, 200, width));
 
     this.atlasTexture = this.textures.get('terrain');
     this.frames = this.atlasTexture.getFrameNames();
@@ -84,10 +66,10 @@ class Game extends Phaser.Scene {
     if (Phaser.Input.Keyboard.JustDown(this.cursors.up)) {
       if (this.player.body.touching.down) {
         this.player.doubleJump = true;
-        this.player.setVelocityY(-330);
+        this.player.setVelocityY(-400);
       } else if (this.player.doubleJump) {
         this.player.doubleJump = false;
-        this.player.setVelocityY(-330);
+        this.player.setVelocityY(-400);
       }
     }
 
