@@ -5,6 +5,7 @@ import blueButton03 from '../assets/ui/blue_button03.png';
 import bgImg from '../assets/images/background/bg-image.png';
 import bgImgTop from '../assets/images/background/additional-sky-top.png';
 import bgImgBottom from '../assets/images/background/additional-sky-bottom.png';
+import diamond from '../assets/images/diamond/01.png';
 import terrain from '../assets/images/terrain/terrain.png';
 import terrainJSON from '../assets/images/terrain/terrainJSON';
 
@@ -93,6 +94,7 @@ class Preloader extends Phaser.Scene {
     this.load.image('bgImg', bgImg);
     this.load.image('bgImgTop', bgImgTop);
     this.load.image('bgImgBottom', bgImgBottom);
+    this.load.image('diamond', diamond);
     this.load.atlas('terrain', terrain, terrainJSON);
   }
 

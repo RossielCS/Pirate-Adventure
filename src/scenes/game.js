@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { gameOptions } from '../config/config';
 import createPlatform from '../game-objects/platform';
+import createGem from '../game-objects/gem';
 
 class Game extends Phaser.Scene {
   constructor() {
@@ -28,6 +29,9 @@ class Game extends Phaser.Scene {
     this.atlasTexture = this.textures.get('terrain');
     this.frames = this.atlasTexture.getFrameNames();
 
+    this.gems = this.physics.add.group(createGem(20, 0, 0));
+    // console.log(this.gems);
+
     // Player
     this.player = this.physics.add.image(0, 0, 'player');
     this.player.setBounceY(0.2);
@@ -36,6 +40,7 @@ class Game extends Phaser.Scene {
     this.player.doubleJump = null;
 
     this.physics.add.collider(this.player, this.platforms);
+    this.physics.add.collider(this.gems, this.platforms);
 
     // Cursors
     this.cursors = this.input.keyboard.createCursorKeys();
