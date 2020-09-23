@@ -8,6 +8,14 @@ class Game extends Phaser.Scene {
     super('Game');
   }
 
+  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line class-methods-use-this
+  collectGem(player, gem) {
+    gem.disableBody(true, true);
+    this.score += 10;
+    this.scoreText.setText(`Score: ${this.score}`);
+  }
+
   create() {
     const { width, height } = this.sys.game.config;
 
@@ -23,6 +31,9 @@ class Game extends Phaser.Scene {
       this.bg.setScrollFactor(0);
     }
 
+    this.scoreText = this.add.text(5, 5, 'score: 0', { fontSize: '32px', fill: '#000' });
+    this.score = 0;
+
     // Platforms
     this.platforms = this.physics.add.group(createPlatform(4, 0, 200, width));
 
@@ -30,20 +41,20 @@ class Game extends Phaser.Scene {
     this.frames = this.atlasTexture.getFrameNames();
 
     this.gems = this.physics.add.group(createGem(20, 0, 0));
-    // console.log(this.gems);
 
     // Player
     this.player = this.physics.add.image(0, 0, 'player');
-    this.player.setBounceY(0.2);
     this.player.setOrigin(0, 0);
     this.player.setGravityY(gameOptions.playerGravity);
     this.player.doubleJump = null;
-
-    this.physics.add.collider(this.player, this.platforms);
-    this.physics.add.collider(this.gems, this.platforms);
+    this.player.setScale(0.5);
 
     // Cursors
     this.cursors = this.input.keyboard.createCursorKeys();
+
+    this.physics.add.collider(this.player, this.platforms);
+    this.physics.add.collider(this.gems, this.platforms);
+    this.physics.add.overlap(this.player, this.gems, this.collectGem, null, this);
   }
 
   startGame() {

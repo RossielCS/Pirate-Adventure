@@ -10,11 +10,7 @@ const createGem = (repeat, x, y) => ({
     x: 2,
     y: 2,
   },
-  active: true,
-  visible: true,
-  velocityX: 0,
-  // allowGravity: false,
-  immovable: true,
+  bounceY: 0.2,
 });
 
 export default createGem;
