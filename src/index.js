@@ -6,6 +6,7 @@ import Preloader from './scenes/preloader';
 import Credits from './scenes/credits';
 import Title from './scenes/title';
 import Game from './scenes/game';
+import Score from './modules/game-score';
 
 class GameManager extends Phaser.Game {
   constructor() {
