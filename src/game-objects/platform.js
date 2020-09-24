@@ -16,9 +16,9 @@ const createPlatform = (repeat, x, y, width) => ({
   allowGravity: false,
   immovable: true,
   frictionX: 1,
-  runChildUpdate: (x) => {
-    x.x = width;
-    x.y = (Math.random() * 100) + 150;
+  runChildUpdate: (element) => {
+    element.x = width;
+    element.y = (Math.random() * 100) + 150;
   },
 });
 
