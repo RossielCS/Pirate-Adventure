@@ -35,7 +35,7 @@ class Game extends Phaser.Scene {
     this.score = 0;
 
     // Platforms
-    this.platforms = this.physics.add.group(createPlatform(4, 0, 200, width));
+    this.platforms = this.physics.add.group(createPlatform(2, 0, 230, width));
 
     // this.atlasTexture = this.textures.get('terrain');
     // this.frames = this.atlasTexture.getFrameNames();
@@ -43,11 +43,20 @@ class Game extends Phaser.Scene {
     this.gems = this.physics.add.group(createGem(1, -50, 0));
 
     // Player
-    this.player = this.physics.add.image(0, 0, 'player');
+    this.player = this.physics.add.image(0, 0, 'pirate');
+
     this.player.setOrigin(0, 0);
     this.player.setGravityY(gameOptions.playerGravity);
     this.player.doubleJump = null;
-    this.player.setScale(0.5);
+    this.player.setScale(1);
+    this.player.body.setSize(25, 25);
+
+    this.player_anim = this.cache.json.get('pirate_anim');
+    this.anims.fromJSON(this.player_anim);
+    console.log(this.player_anim);
+    // this.anims.fromJSON();
+
+    this.player.anims.play('idle');
 
     // Cursors
     this.cursors = this.input.keyboard.createCursorKeys();

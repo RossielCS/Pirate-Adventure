@@ -8,6 +8,9 @@ import bgImgBottom from '../assets/images/background/additional-sky-bottom.png';
 import diamond from '../assets/images/diamond/01.png';
 import terrain from '../assets/images/terrain/terrain.png';
 import terrainJSON from '../assets/images/terrain/terrainJSON';
+import pirateAnim from '../assets/images/pirate/pirate_anim.json';
+import pirate from '../assets/images/pirate/pirate_atlas.json';
+import piratePng from '../assets/images/pirate/pirate.png';
 
 class Preloader extends Phaser.Scene {
   constructor() {
@@ -96,6 +99,8 @@ class Preloader extends Phaser.Scene {
     this.load.image('bgImgBottom', bgImgBottom);
     this.load.image('diamond', diamond);
     this.load.atlas('terrain', terrain, terrainJSON);
+    this.load.json('pirate_anim', pirateAnim);
+    this.load.atlas('pirate', piratePng, pirate);
   }
 
   ready() {
