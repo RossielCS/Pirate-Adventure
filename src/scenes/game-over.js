@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { validateInput, postScore } from '../modules/game-score';
+import { validateInput, postScore, getScores } from '../modules/game-score';
 
 class GameOver extends Phaser.Scene {
   constructor() {
@@ -28,32 +28,37 @@ class GameOver extends Phaser.Scene {
     );
 
     this.submit = this.add.dom(
-      width / 2, 160,
+      width / 2, 170,
       'button',
       '',
       'SUBMIT',
     );
 
     this.cancel = this.add.dom(
-      width / 2, 200,
+      width / 2, 210,
       'button',
       '',
       'CANCEL',
     );
 
-    this.submit.setInteractive();
-    this.submit.on('pointerdown', () => {
-      const input = document.getElementsByTagName('input')[0].value;
-      console.log(input);
+    this.submit.addListener('pointerdown');
+    this.submit.on('pointerdown', async () => {
+      const input = {};
+      input.user = document.getElementsByTagName('input')[0].value;
+      input.score = this.playerScore;
       const data = validateInput(input);
       if (data) {
-        postScore(data);
-        this.scene.start('Score');
+        const response = await postScore(data);
+        if (response) {
+          this.sys.game.globals.allScores = await getScores();
+          this.scene.start('Score');
+        }
       }
     });
 
-    this.cancel.setInteractive();
-    this.cancel.on('pointerdown', () => {
+    this.cancel.addListener('pointerdown');
+    this.cancel.on('pointerdown', async () => {
+      this.sys.game.globals.allScores = await getScores();
       this.scene.start('Score');
     });
   }
