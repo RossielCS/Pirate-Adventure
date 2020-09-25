@@ -31,6 +31,7 @@ class Game extends Phaser.Scene {
       this.bg.setScrollFactor(0);
     }
 
+    // Score
     this.scoreText = this.add.text(5, 5, 'score: 0', { fontSize: '32px', fill: '#000' });
     this.score = 0;
 
