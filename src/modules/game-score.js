@@ -13,7 +13,7 @@ const errHandler = () => new Response(JSON.stringify({ message: 'City not found.
 const postScore = async (data) => {
   let response = '';
   if (data) {
-    response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/1jFd06GQ0jNaUanltu4w/scores/', { 
+    response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/1jFd06GQ0jNaUanltu4w/scores/', {
       mode: 'cors',
       method: 'POST',
       body: JSON.stringify(data),
@@ -40,3 +40,5 @@ const getScores = async (validation) => {
   }
   return false;
 };
+
+export { validateInput, postScore, getScores };

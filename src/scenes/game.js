@@ -121,7 +121,7 @@ class Game extends Phaser.Scene {
       }
     });
 
-    if (this.player.y > this.sys.game.config.height) this.scene.start('Game');
+    if (this.player.y > this.sys.game.config.height) this.scene.start('GameOver');
   }
 }
 

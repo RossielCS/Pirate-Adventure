@@ -13,6 +13,9 @@ const config = {
       debug: false,
     },
   },
+  dom: {
+    createContainer: true,
+  },
 };
 
 const gameOptions = {

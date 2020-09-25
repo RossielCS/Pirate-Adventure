@@ -6,7 +6,7 @@ import Preloader from './scenes/preloader';
 import Credits from './scenes/credits';
 import Title from './scenes/title';
 import Game from './scenes/game';
-import Score from './modules/game-score';
+import GameOver from './scenes/game-over';
 
 class GameManager extends Phaser.Game {
   constructor() {
@@ -16,7 +16,8 @@ class GameManager extends Phaser.Game {
     this.scene.add('Credits', Credits);
     this.scene.add('Title', Title);
     this.scene.add('Game', Game);
-    this.scene.start('Boot');
+    this.scene.add('GameOver', GameOver);
+    this.scene.start('GameOver');
   }
 }
 
