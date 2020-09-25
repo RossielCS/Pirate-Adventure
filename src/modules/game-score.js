@@ -29,11 +29,8 @@ const postScore = async (data) => {
   return false;
 };
 
-const getScores = async (validation) => {
-  let response = '';
-  if (validation) {
-    response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/1jFd06GQ0jNaUanltu4w/scores/', { mode: 'cors', method: 'GET' }).catch(errHandler);
-  }
+const getScores = async () => {
+  const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/1jFd06GQ0jNaUanltu4w/scores/', { mode: 'cors', method: 'GET' }).catch(errHandler);
   const scores = await response.json();
   if (response === 'Leaderboard score created correctly.') {
     return scores;

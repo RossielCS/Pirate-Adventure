@@ -1,20 +1,23 @@
+/* eslint-disable no-underscore-dangle */
 class Model {
   constructor() {
-    this.soundOn = true;
-    this.musicOn = true;
-    this.bgMusicPlaying = false;
+    this._soundOn = true;
+    this._musicOn = true;
+    this._bgMusicPlaying = false;
+    this._score = 0;
+    this._scoreValidation = false;
   }
 
   set musicOn(value) {
-    this.musicOn = value;
+    this._musicOn = value;
   }
 
   get musicOn() {
-    return this.musicOn;
+    return this._musicOn;
   }
 
   set soundOn(value) {
-    this.soundOn = value;
+    this._soundOn = value;
   }
 
   get soundOn() {
@@ -22,12 +25,28 @@ class Model {
   }
 
   set bgMusicPlaying(value) {
-    this.bgMusicPlaying = value;
+    this._bgMusicPlaying = value;
   }
 
   get bgMusicPlaying() {
-    return this.bgMusicPlaying;
+    return this._bgMusicPlaying;
   }
+
+  set score(value) {
+    this._score = value;
+  }
+
+  get score() {
+    return this._score;
+  }
+  /*
+  set scoreValidation(value) {
+    this._scoreValidation = value;
+  }
+
+  get scoreValidation() {
+    return this._scoreValidation;
+  } */
 }
 
 export default Model;

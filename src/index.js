@@ -7,6 +7,8 @@ import Credits from './scenes/credits';
 import Title from './scenes/title';
 import Game from './scenes/game';
 import GameOver from './scenes/game-over';
+import Score from './scenes/score';
+import Model from './modules/model';
 
 class GameManager extends Phaser.Game {
   constructor() {
@@ -17,8 +19,11 @@ class GameManager extends Phaser.Game {
     this.scene.add('Title', Title);
     this.scene.add('Game', Game);
     this.scene.add('GameOver', GameOver);
-    this.scene.start('GameOver');
+    this.scene.add('Score', Score);
+    this.scene.start('Boot');
   }
 }
 
 window.game = new GameManager();
+const model = new Model();
+window.game.globals = model;

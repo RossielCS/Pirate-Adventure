@@ -18,6 +18,7 @@ class Game extends Phaser.Scene {
 
   create() {
     const { width, height } = this.sys.game.config;
+    this.saveScore = this.sys.game.globals;
 
     // Backgrounds
     const bgAttributes = {
@@ -122,7 +123,10 @@ class Game extends Phaser.Scene {
       }
     });
 
-    if (this.player.y > this.sys.game.config.height) this.scene.start('GameOver');
+    if (this.player.y > this.sys.game.config.height) {
+      this.saveScore.score = this.score;
+      this.scene.start('GameOver');
+    }
   }
 }
 
