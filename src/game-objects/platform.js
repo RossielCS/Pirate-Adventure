@@ -7,8 +7,8 @@ const createPlatform = (repeat, x, y, width) => ({
     stepX: 300,
   },
   setScale: {
-    x: 1,
-    y: 1,
+    x: 1.3,
+    y: 1.3,
   },
   active: true,
   visible: true,

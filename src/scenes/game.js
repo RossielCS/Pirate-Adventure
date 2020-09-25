@@ -43,20 +43,16 @@ class Game extends Phaser.Scene {
     this.gems = this.physics.add.group(createGem(1, -50, 0));
 
     // Player
-    this.player = this.physics.add.image(0, 0, 'pirate');
+    this.player = this.physics.add.sprite(30, 0, 'pirate');
+    this.player_anim = this.cache.json.get('pirate_anim');
+    this.anims.fromJSON(this.player_anim);
+    this.player.anims.play('idle');
 
     this.player.setOrigin(0, 0);
     this.player.setGravityY(gameOptions.playerGravity);
     this.player.doubleJump = null;
-    this.player.setScale(1);
+    this.player.setScale(1.3);
     this.player.body.setSize(25, 25);
-
-    this.player_anim = this.cache.json.get('pirate_anim');
-    this.anims.fromJSON(this.player_anim);
-    console.log(this.player_anim);
-    // this.anims.fromJSON();
-
-    this.player.anims.play('idle');
 
     // Cursors
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -79,13 +75,18 @@ class Game extends Phaser.Scene {
 
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-160);
-      // this.player.anims.play('left', true);
+      this.player.flipX = true;
+      this.player.anims.play('run', true);
     } else if (this.cursors.right.isDown) {
       this.player.setVelocityX(160);
-      // this.player.anims.play('right', true);
+      this.player.flipX = false;
+      this.player.anims.play('run', true);
+    } else if (this.cursors.up.isDown) {
+      this.player.setVelocityX(0);
+      this.player.anims.play('jump', true);
     } else {
       this.player.setVelocityX(0);
-      // this.player.anims.play('turn');
+      this.player.anims.play('idle', true);
     }
 
     if (Phaser.Input.Keyboard.JustDown(this.cursors.up)) {
