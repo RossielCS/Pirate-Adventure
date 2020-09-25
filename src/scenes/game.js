@@ -2,17 +2,15 @@ import Phaser from 'phaser';
 import { gameOptions } from '../config/config';
 import createPlatform from '../game-objects/platform';
 import createGem from '../game-objects/gem';
+import createCloud from '../game-objects/cloud';
 
 class Game extends Phaser.Scene {
   constructor() {
     super('Game');
   }
 
-  // eslint-disable-next-line no-unused-vars
   // eslint-disable-next-line class-methods-use-this
-  collectGem(player, gem) {
-    console.log(gem.anims);
-    gem.play('collect');
+  collectGem(_player, gem) {
     gem.disableBody(true, true);
     this.score += 10;
     this.scoreText.setText(`Score: ${this.score}`);
@@ -36,12 +34,13 @@ class Game extends Phaser.Scene {
     this.scoreText = this.add.text(5, 5, 'score: 0', { fontSize: '32px', fill: '#000' });
     this.score = 0;
 
+    // Clouds
+    this.clouds = this.physics.add.group(createCloud(1, 0, width));
+
     // Platforms
     this.platforms = this.physics.add.group(createPlatform(2, 0, 230, width));
 
-    // this.atlasTexture = this.textures.get('terrain');
-    // this.frames = this.atlasTexture.getFrameNames();
-
+    // Gems
     this.gems = this.physics.add.group(createGem(1, -50, 0));
     this.anims.fromJSON(this.cache.json.get('diamond_anim'));
     this.gems.playAnimation('rotate');
@@ -68,6 +67,9 @@ class Game extends Phaser.Scene {
   startGame() {
     this.platforms.getChildren().forEach(x => {
       x.body.setVelocityX(-200);
+    });
+    this.clouds.getChildren().forEach(x => {
+      x.body.setVelocityX(-50);
     });
   }
 
@@ -111,6 +113,12 @@ class Game extends Phaser.Scene {
 
     this.gems.getChildren().forEach(x => {
       if (x.x < -24) x.disableBody(true, true);
+    });
+
+    this.clouds.getChildren().forEach(x => {
+      if (x.x < -100) {
+        this.clouds.runChildUpdate(x);
+      }
     });
 
     if (this.player.y > this.sys.game.config.height) this.scene.start('Game');
