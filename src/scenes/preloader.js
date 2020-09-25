@@ -5,12 +5,15 @@ import blueButton03 from '../assets/ui/blue_button03.png';
 import bgImg from '../assets/images/background/bg-image.png';
 import bgImgTop from '../assets/images/background/additional-sky-top.png';
 import bgImgBottom from '../assets/images/background/additional-sky-bottom.png';
-import diamond from '../assets/images/diamond/01.png';
 import terrain from '../assets/images/terrain/terrain.png';
 import terrainJSON from '../assets/images/terrain/terrainJSON';
 import pirateAnim from '../assets/images/pirate/pirate_anim.json';
 import pirate from '../assets/images/pirate/pirate_atlas.json';
 import piratePng from '../assets/images/pirate/pirate.png';
+import diamondAnim from '../assets/images/diamond/diamond_anim.json';
+import diamond from '../assets/images/diamond/diamond_atlas.json';
+import diamondPng from '../assets/images/diamond/diamond.png';
+
 
 class Preloader extends Phaser.Scene {
   constructor() {
@@ -97,10 +100,11 @@ class Preloader extends Phaser.Scene {
     this.load.image('bgImg', bgImg);
     this.load.image('bgImgTop', bgImgTop);
     this.load.image('bgImgBottom', bgImgBottom);
-    this.load.image('diamond', diamond);
     this.load.atlas('terrain', terrain, terrainJSON);
     this.load.json('pirate_anim', pirateAnim);
     this.load.atlas('pirate', piratePng, pirate);
+    this.load.json('diamond_anim', diamondAnim);
+    this.load.atlas('diamond', diamondPng, diamond);
   }
 
   ready() {

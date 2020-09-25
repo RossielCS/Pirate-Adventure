@@ -11,6 +11,8 @@ class Game extends Phaser.Scene {
   // eslint-disable-next-line no-unused-vars
   // eslint-disable-next-line class-methods-use-this
   collectGem(player, gem) {
+    console.log(gem.anims);
+    gem.play('collect');
     gem.disableBody(true, true);
     this.score += 10;
     this.scoreText.setText(`Score: ${this.score}`);
@@ -41,12 +43,13 @@ class Game extends Phaser.Scene {
     // this.frames = this.atlasTexture.getFrameNames();
 
     this.gems = this.physics.add.group(createGem(1, -50, 0));
+    this.anims.fromJSON(this.cache.json.get('diamond_anim'));
+    this.gems.playAnimation('rotate');
 
     // Player
     this.player = this.physics.add.sprite(30, 0, 'pirate');
-    this.player_anim = this.cache.json.get('pirate_anim');
-    this.anims.fromJSON(this.player_anim);
-    this.player.anims.play('idle');
+    this.anims.fromJSON(this.cache.json.get('pirate_anim'));
+    this.player.anims.play('idle', true);
 
     this.player.setOrigin(0, 0);
     this.player.setGravityY(gameOptions.playerGravity);
