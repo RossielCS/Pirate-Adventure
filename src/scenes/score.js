@@ -13,11 +13,12 @@ class Score extends Phaser.Scene {
     this.scores = this.sys.game.globals.allScores.result.sort(sortScores);
 
     if (this.scores) {
-      // this.add.text(2, 2, 'SCORES', { fill: '#fff' });
-      // this.add.text(10, 10, `${JSON.stringify(this.scores)}`, { fill: '#fff' });
-      this.tBody = createTable();
-      // console.log(this.scores);
-      addValuesToTable(this.tBody, this.scores);
+      // this.add.text(width / 2, 100, 'SCORES', { fill: '#fff' });
+      this.table = createTable();
+      // this.table.style.display = 'block';
+      // this.table.style.overflow = 'auto';
+      // this.table.style.maxHeight = '250px';
+      addValuesToTable(this.scores);
     } else {
       this.add.text(0, 0, 'There was an error while trying to get the scores.', { fill: '#fff' });
     }
