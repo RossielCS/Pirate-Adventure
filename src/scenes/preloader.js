@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
-import player from '../assets/images/player1.png';
-import blueButton02 from '../assets/ui/blue_button02.png';
-import blueButton03 from '../assets/ui/blue_button03.png';
+import title1 from '../assets/images/ui/title1.png';
+import title2 from '../assets/images/ui/title2.png';
+import greenButton1 from '../assets/images/ui/button-green1.png';
+import greenButton2 from '../assets/images/ui/button-green2.png';
 import bgImg from '../assets/images/background/bg-image.png';
 import bgImgTop from '../assets/images/background/additional-sky-top.png';
 import bgImgBottom from '../assets/images/background/additional-sky-bottom.png';
@@ -95,9 +96,10 @@ class Preloader extends Phaser.Scene {
     this.timedEvent = this.time.delayedCall(1000, this.ready, [], this);
 
     // load assets
-    this.load.image('player', player);
-    this.load.image('blueButton1', blueButton02);
-    this.load.image('blueButton2', blueButton03);
+    this.load.image('title1', title1);
+    this.load.image('title2', title2);
+    this.load.image('greenButton1', greenButton1);
+    this.load.image('greenButton2', greenButton2);
     this.load.image('bgImg', bgImg);
     this.load.image('bgImgTop', bgImgTop);
     this.load.image('bgImgBottom', bgImgBottom);
