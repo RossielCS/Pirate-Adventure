@@ -13,7 +13,6 @@ class Score extends Phaser.Scene {
     this.scores = this.sys.game.globals.allScores.result.sort(sortScores);
 
     if (this.scores) {
-      // this.add.text(width / 2, 100, 'SCORES', { fill: '#fff' });
       this.table = createTable();
       addValuesToTable(this.scores);
     } else {
