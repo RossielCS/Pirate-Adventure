@@ -13,6 +13,9 @@ class Score extends Phaser.Scene {
     this.scores = this.sys.game.globals.model.allScores.result.sort(sortScores);
 
     if (this.scores) {
+      this.scoreImg = this.add.image(150, 40, 'leaderboardImg');
+      this.scoreImg.setOrigin(0, 0);
+      this.scoreImg.setScale(3);
       this.table = createTable();
       addValuesToTable(this.scores);
     } else {
