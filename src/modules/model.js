@@ -4,6 +4,7 @@ class Model {
     this._musicOn = true;
     this._bgMusicPlaying = false;
     this._score = 0;
+    this._played = false;
     this._allScores = null;
   }
 
@@ -29,6 +30,14 @@ class Model {
 
   get score() {
     return this._score;
+  }
+
+  set played(value) {
+    this._played = value;
+  }
+
+  get played() {
+    return this._played;
   }
 
   set allScores(values) {

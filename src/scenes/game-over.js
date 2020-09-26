@@ -6,10 +6,6 @@ class GameOver extends Phaser.Scene {
     super('GameOver');
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  preload() {
-  }
-
   create() {
     const { width, height } = this.sys.game.config;
     this.blocked = false;
@@ -27,7 +23,7 @@ class GameOver extends Phaser.Scene {
     this.scoreTitle.setOrigin(0, 0);
     this.scoreTitle.setScale(2.5);
 
-    this.add.text(420, 110, `${this.playerScore}`, { fontSize: '30px', fill: '#fff' });
+    this.add.text(422, 109, `${this.playerScore}`, { fontFamily: 'Arial', fontSize: '27px', fill: '#000' });
     this.label = this.add.dom(
       width / 2, 190,
       'label',

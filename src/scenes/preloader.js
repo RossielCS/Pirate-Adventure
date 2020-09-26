@@ -7,6 +7,7 @@ import checkbox1 from '../assets/images/ui/checkbox1.png';
 import checkbox2 from '../assets/images/ui/checkbox2.png';
 import bgMusic from '../assets/music/bg-music.mp3';
 import scoreTitle from '../assets/images/ui/score-title.png';
+import menuImg from '../assets/images/ui/menu.png';
 import leaderboardImg from '../assets/images/ui/leaderboard.png';
 import leaderboardTitle from '../assets/images/ui/leaderboard-title.png';
 import gameOverTitle from '../assets/images/ui/game-over-title.png';
@@ -107,6 +108,7 @@ class Preloader extends Phaser.Scene {
     this.load.image('checkbox2', checkbox2);
     this.load.audio('bgMusic', bgMusic);
     this.load.image('scoreTitle', scoreTitle);
+    this.load.image('menuImg', menuImg);
     this.load.image('leaderboardImg', leaderboardImg);
     this.load.image('leaderboardTitle', leaderboardTitle);
     this.load.image('gameOverTitle', gameOverTitle);

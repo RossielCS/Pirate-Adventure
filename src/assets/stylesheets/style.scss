@@ -12,13 +12,11 @@ body {
   width: fit-content;
   height: fit-content;
   margin: auto;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+  font-family: 'Arial', sans-serif;
 
   div {
-    label {
-      color: rgb(44, 44, 44);
-      font-weight: bold;
-    }
+    color: rgb(44, 44, 44);
+    font-weight: bold;
 
     input,
     button {
@@ -28,9 +26,7 @@ body {
 
     table {
       margin: 18% auto;
-      // color: rgb(44, 44, 44);
       font-size: 17px;
-      // font-weight: bold;
       pointer-events: auto;
 
       #tHead {
