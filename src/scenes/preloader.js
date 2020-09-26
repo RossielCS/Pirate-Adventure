@@ -3,6 +3,9 @@ import title1 from '../assets/images/ui/title1.png';
 import title2 from '../assets/images/ui/title2.png';
 import greenButton1 from '../assets/images/ui/button-green1.png';
 import greenButton2 from '../assets/images/ui/button-green2.png';
+import checkbox1 from '../assets/images/ui/checkbox1.png';
+import checkbox2 from '../assets/images/ui/checkbox2.png';
+import bgMusic from '../assets/music/bg-music.mp3';
 import bgImg from '../assets/images/background/bg-image.png';
 import bgImgTop from '../assets/images/background/additional-sky-top.png';
 import bgImgBottom from '../assets/images/background/additional-sky-bottom.png';
@@ -16,7 +19,6 @@ import diamondAnim from '../assets/images/diamond/diamond_anim.json';
 import diamond from '../assets/images/diamond/diamond_atlas.json';
 import diamondPng from '../assets/images/diamond/diamond.png';
 
-
 class Preloader extends Phaser.Scene {
   constructor() {
     super('Preloader');
@@ -27,9 +29,6 @@ class Preloader extends Phaser.Scene {
   }
 
   preload() {
-    // add logo image
-    this.add.image(340, 80, 'logo');
-
     // display progress bar
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
@@ -100,6 +99,9 @@ class Preloader extends Phaser.Scene {
     this.load.image('title2', title2);
     this.load.image('greenButton1', greenButton1);
     this.load.image('greenButton2', greenButton2);
+    this.load.image('checkbox1', checkbox1);
+    this.load.image('checkbox2', checkbox2);
+    this.load.audio('bgMusic', bgMusic);
     this.load.image('bgImg', bgImg);
     this.load.image('bgImgTop', bgImgTop);
     this.load.image('bgImgBottom', bgImgBottom);

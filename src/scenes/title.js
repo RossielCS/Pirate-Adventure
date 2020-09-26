@@ -23,6 +23,14 @@ class Title extends Phaser.Scene {
 
     // Credits
     this.creditsButton = new Button(this, width / 2, height / 2 + 130, 'greenButton1', 'greenButton2', 'Credits', 'Credits', 3);
+
+    this.model = this.sys.game.globals.model;
+    if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
+      this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
+      this.bgMusic.play();
+      this.model.bgMusicPlaying = true;
+      this.sys.game.globals.bgMusic = this.bgMusic;
+    }
   }
 }
 
