@@ -28,4 +28,4 @@ class GameManager extends Phaser.Game {
 
 window.game = new GameManager();
 const model = new Model();
-window.game.globals = model;
+window.game.globals = { model, bgMusic: null };

@@ -10,7 +10,7 @@ class Score extends Phaser.Scene {
 
   create() {
     const { width, height } = this.sys.game.config;
-    this.scores = this.sys.game.globals.allScores.result.sort(sortScores);
+    this.scores = this.sys.game.globals.model.allScores.result.sort(sortScores);
 
     if (this.scores) {
       this.table = createTable();

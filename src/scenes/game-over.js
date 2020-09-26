@@ -12,7 +12,7 @@ class GameOver extends Phaser.Scene {
 
   create() {
     const { width, height } = this.sys.game.config;
-    this.playerScore = this.sys.game.globals.score;
+    this.playerScore = this.sys.game.globals.model.score;
 
     this.add.text(width / 2, 50, `SCORE: ${this.playerScore}`, { fill: '#fff' });
     this.label = this.add.dom(
@@ -50,7 +50,7 @@ class GameOver extends Phaser.Scene {
       if (data) {
         const response = await postScore(data);
         if (response) {
-          this.sys.game.globals.allScores = await getScores();
+          this.sys.game.globals.model.allScores = await getScores();
           this.scene.start('Score');
         }
       }
@@ -58,7 +58,7 @@ class GameOver extends Phaser.Scene {
 
     this.cancel.addListener('pointerdown');
     this.cancel.on('pointerdown', async () => {
-      this.sys.game.globals.allScores = await getScores();
+      this.sys.game.globals.model.allScores = await getScores();
       this.scene.start('Score');
     });
   }

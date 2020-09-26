@@ -18,7 +18,7 @@ class Game extends Phaser.Scene {
 
   create() {
     const { width, height } = this.sys.game.config;
-    this.saveScore = this.sys.game.globals;
+    this.saveScore = this.sys.game.globals.model;
 
     // Backgrounds
     const bgAttributes = {
