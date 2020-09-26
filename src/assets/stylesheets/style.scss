@@ -12,6 +12,7 @@ body {
   width: fit-content;
   height: fit-content;
   margin: auto;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
 
   div {
     label {
@@ -25,19 +26,37 @@ body {
     }
 
     table {
-      margin: auto;
+      margin: 15% auto;
       color: #fff;
+      pointer-events: auto;
 
       #tHead {
-        // position: fixed;
         display: block;
+        margin-bottom: 10px;
+        text-align: center;
+
+        tr {
+          th {
+            min-width: 100px;
+          }
+        }
       }
 
       #tBody {
         display: block;
         overflow: auto;
         max-height: 200px;
-        background-color: royalblue;
+
+        tr {
+          height: 40px;
+          line-height: 40px;
+          border-bottom: 1px solid #fff;
+
+          td {
+            padding-left: 15px;
+            min-width: 120px;
+          }
+        }
       }
     }
   }

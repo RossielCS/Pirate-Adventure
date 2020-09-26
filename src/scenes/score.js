@@ -15,9 +15,6 @@ class Score extends Phaser.Scene {
     if (this.scores) {
       // this.add.text(width / 2, 100, 'SCORES', { fill: '#fff' });
       this.table = createTable();
-      // this.table.style.display = 'block';
-      // this.table.style.overflow = 'auto';
-      // this.table.style.maxHeight = '250px';
       addValuesToTable(this.scores);
     } else {
       this.add.text(0, 0, 'There was an error while trying to get the scores.', { fill: '#fff' });
