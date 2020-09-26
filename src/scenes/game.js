@@ -33,9 +33,9 @@ class Game extends Phaser.Scene {
     }
 
     // Score
-    this.scoreImg = this.add.image(15, 15, 'scoreImg');
-    this.scoreImg.setOrigin(0, 0);
-    this.scoreImg.setScale(1.5);
+    this.scoreTitle = this.add.image(15, 15, 'scoreTitle');
+    this.scoreTitle.setOrigin(0, 0);
+    this.scoreTitle.setScale(1.5);
     this.scoreText = this.add.text(110, 11, '0', { fontSize: '25px', fill: '#000' });
     this.score = 0;
 

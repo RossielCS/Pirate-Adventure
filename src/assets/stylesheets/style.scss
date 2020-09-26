@@ -26,8 +26,10 @@ body {
     }
 
     table {
-      margin: 15% auto;
-      color: #fff;
+      margin: 18% auto;
+      color: rgb(44, 44, 44);
+      font-size: 17px;
+      font-weight: bold;
       pointer-events: auto;
 
       #tHead {
@@ -45,12 +47,12 @@ body {
       #tBody {
         display: block;
         overflow: auto;
-        max-height: 200px;
+        max-height: 170px;
 
         tr {
-          height: 40px;
-          line-height: 40px;
-          border-bottom: 1px solid #fff;
+          height: 30px;
+          line-height: 30px;
+          border-bottom: 1px solid rgb(44, 44, 44);
 
           td {
             padding-left: 15px;

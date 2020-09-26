@@ -15,9 +15,9 @@ class GameOver extends Phaser.Scene {
     this.blocked = false;
     this.playerScore = this.sys.game.globals.model.score;
 
-    this.scoreImg = this.add.image(270, 40, 'scoreImg');
-    this.scoreImg.setOrigin(0, 0);
-    this.scoreImg.setScale(3);
+    this.scoreTitle = this.add.image(270, 40, 'scoreTitle');
+    this.scoreTitle.setOrigin(0, 0);
+    this.scoreTitle.setScale(3);
 
     this.add.text(330, 90, `${this.playerScore}`, { fontSize: '40px', fill: '#fff' });
     this.label = this.add.dom(

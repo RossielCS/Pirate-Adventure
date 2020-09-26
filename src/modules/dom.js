@@ -18,9 +18,9 @@ const createTable = () => {
   tBody.setAttribute('id', 'tBody');
   const trOne = tHead.insertRow();
   const tHOne = creator(trOne, 'th', 'append');
-  tHOne.innerHTML = 'Username';
+  tHOne.innerHTML = 'USER';
   const tHTwo = creator(trOne, 'th', 'append');
-  tHTwo.innerHTML = 'Score';
+  tHTwo.innerHTML = 'SCORE';
   return table;
 };
 

@@ -17,6 +17,8 @@ class Button extends Phaser.GameObjects.Container {
     this.add(this.text);
 
     this.button.on('pointerdown', () => {
+      const table = document.getElementsByTagName('table')[0];
+      if (table) table.remove();
       this.scene.scene.start(targetScene);
     });
 
