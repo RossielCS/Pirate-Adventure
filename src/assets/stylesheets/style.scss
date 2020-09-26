@@ -16,7 +16,8 @@ body {
 
   div {
     label {
-      color: #fff;
+      color: rgb(44, 44, 44);
+      font-weight: bold;
     }
 
     input,
@@ -27,9 +28,9 @@ body {
 
     table {
       margin: 18% auto;
-      color: rgb(44, 44, 44);
+      // color: rgb(44, 44, 44);
       font-size: 17px;
-      font-weight: bold;
+      // font-weight: bold;
       pointer-events: auto;
 
       #tHead {

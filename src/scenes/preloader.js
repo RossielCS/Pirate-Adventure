@@ -9,6 +9,7 @@ import bgMusic from '../assets/music/bg-music.mp3';
 import scoreTitle from '../assets/images/ui/score-title.png';
 import leaderboardImg from '../assets/images/ui/leaderboard.png';
 import leaderboardTitle from '../assets/images/ui/leaderboard-title.png';
+import gameOverTitle from '../assets/images/ui/game-over-title.png';
 import bgImg from '../assets/images/background/bg-image.png';
 import bgImgTop from '../assets/images/background/additional-sky-top.png';
 import bgImgBottom from '../assets/images/background/additional-sky-bottom.png';
@@ -108,6 +109,7 @@ class Preloader extends Phaser.Scene {
     this.load.image('scoreTitle', scoreTitle);
     this.load.image('leaderboardImg', leaderboardImg);
     this.load.image('leaderboardTitle', leaderboardTitle);
+    this.load.image('gameOverTitle', gameOverTitle);
     this.load.image('bgImg', bgImg);
     this.load.image('bgImgTop', bgImgTop);
     this.load.image('bgImgBottom', bgImgBottom);

@@ -15,32 +15,40 @@ class GameOver extends Phaser.Scene {
     this.blocked = false;
     this.playerScore = this.sys.game.globals.model.score;
 
-    this.scoreTitle = this.add.image(270, 40, 'scoreTitle');
-    this.scoreTitle.setOrigin(0, 0);
-    this.scoreTitle.setScale(3);
+    this.gameOverImg = this.add.image(width / 2, height / 2, 'leaderboardImg');
+    this.gameOverImg.setScale(3.2);
 
-    this.add.text(330, 90, `${this.playerScore}`, { fontSize: '40px', fill: '#fff' });
+    this.gameOverTitle = this.add.image(210, 70, 'gameOverTitle');
+    this.gameOverTitle.setTint(0xff100c);
+    this.gameOverTitle.setOrigin(0, 0);
+    this.gameOverTitle.setScale(3);
+
+    this.scoreTitle = this.add.image(240, 110, 'scoreTitle');
+    this.scoreTitle.setOrigin(0, 0);
+    this.scoreTitle.setScale(2.5);
+
+    this.add.text(420, 110, `${this.playerScore}`, { fontSize: '30px', fill: '#fff' });
     this.label = this.add.dom(
-      width / 2, 180,
+      width / 2, 190,
       'label',
       '',
       'Write your name here\nto save your score\n\n(3 characters minimum)',
     );
 
     this.input = this.add.dom(
-      width / 2, 230,
+      width / 2, 240,
       'input',
     );
 
     this.submit = this.add.dom(
-      width / 2, 270,
+      width / 2, 280,
       'button',
       '',
       'SUBMIT',
     );
 
     this.cancel = this.add.dom(
-      width / 2, 310,
+      width / 2, 315,
       'button',
       '',
       'CANCEL',
