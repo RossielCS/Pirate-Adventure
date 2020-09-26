@@ -13,7 +13,7 @@ class Game extends Phaser.Scene {
   collectGem(_player, gem) {
     gem.disableBody(true, true);
     this.score += 10;
-    this.scoreText.setText(`Score: ${this.score}`);
+    this.scoreText.setText(`${this.score}`);
   }
 
   create() {
@@ -33,11 +33,14 @@ class Game extends Phaser.Scene {
     }
 
     // Score
-    this.scoreText = this.add.text(5, 5, 'score: 0', { fontSize: '32px', fill: '#000' });
+    this.scoreImg = this.add.image(15, 15, 'scoreImg');
+    this.scoreImg.setOrigin(0, 0);
+    this.scoreImg.setScale(1.5);
+    this.scoreText = this.add.text(110, 11, '0', { fontSize: '25px', fill: '#000' });
     this.score = 0;
 
     // Clouds
-    this.clouds = this.physics.add.group(createCloud(1, 0, width));
+    this.clouds = this.physics.add.group(createCloud(2, 0));
 
     // Platforms
     this.platforms = this.physics.add.group(createPlatform(2, 0, 230, width));
@@ -118,7 +121,7 @@ class Game extends Phaser.Scene {
     });
 
     this.clouds.getChildren().forEach(x => {
-      if (x.x < -100) {
+      if (x.x < -448) {
         this.clouds.runChildUpdate(x);
       }
     });

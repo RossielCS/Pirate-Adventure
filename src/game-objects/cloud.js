@@ -1,20 +1,20 @@
-const creatCloud = (repeat, x, width) => ({
+const creatCloud = (repeat, x) => ({
   key: 'bigClouds',
   repeat,
   setXY: {
     x,
     y: 185,
-    stepX: 492.8,
+    stepX: 448,
   },
   setScale: {
-    x: 1.1,
-    y: 1.1,
+    x: 1,
+    y: 1,
   },
   velocityX: 0,
   allowGravity: false,
   immovable: true,
   runChildUpdate: (element) => {
-    element.x = width;
+    element.x = 893;
   },
 });
 

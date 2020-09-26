@@ -4,31 +4,31 @@ import Phaser from 'phaser';
 class Button extends Phaser.GameObjects.Container {
   constructor(scene, x, y, key1, key2, text, targetScene, scale) {
     super(scene);
-    this._scene = scene;
-    this._x = x;
-    this._y = y;
+    this.scene = scene;
+    this.x = x;
+    this.y = y;
 
-    this._button = this._scene.add.sprite(this._x, this._y, key1).setInteractive();
-    this._button.setScale(scale);
-    this._text = this._scene.add.text(0, 0, text, { fontSize: '17px', fill: '#fff' });
-    Phaser.Display.Align.In.Center(this._text, this._button);
+    this.button = this.scene.add.sprite(0, 0, key1).setInteractive();
+    this.button.setScale(scale);
+    this.text = this.scene.add.text(0, 0, text, { fontSize: '17px', fill: '#fff' });
+    Phaser.Display.Align.In.Center(this.text, this.button);
 
-    this.add(this._button);
-    this.add(this._text);
+    this.add(this.button);
+    this.add(this.text);
 
-    this._button.on('pointerdown', () => {
-      this._scene.scene.start(targetScene);
+    this.button.on('pointerdown', () => {
+      this.scene.scene.start(targetScene);
     });
 
-    this._button.on('pointerover', () => {
-      this._button.setTexture(key2);
+    this.button.on('pointerover', () => {
+      this.button.setTexture(key2);
     });
 
-    this._button.on('pointerout', () => {
-      this._button.setTexture(key1);
+    this.button.on('pointerout', () => {
+      this.button.setTexture(key1);
     });
 
-    this._scene.add.existing(this);
+    this.scene.add.existing(this);
   }
 }
 

@@ -1,7 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 class Model {
   constructor() {
-    this._soundOn = true;
     this._musicOn = true;
     this._bgMusicPlaying = false;
     this._score = 0;
@@ -14,14 +13,6 @@ class Model {
 
   get musicOn() {
     return this._musicOn;
-  }
-
-  set soundOn(value) {
-    this._soundOn = value;
-  }
-
-  get soundOn() {
-    return this.soundOn;
   }
 
   set bgMusicPlaying(value) {
