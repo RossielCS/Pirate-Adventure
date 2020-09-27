@@ -24,58 +24,80 @@ class GameOver extends Phaser.Scene {
     this.scoreTitle.setScale(2.5);
 
     this.add.text(422, 109, `${this.playerScore}`, { fontFamily: 'Arial', fontSize: '27px', fill: '#000' });
-    this.label = this.add.dom(
-      width / 2, 190,
-      'label',
-      '',
-      'Write your name here\nto save your score\n\n(3 characters minimum)',
-    );
 
-    this.input = this.add.dom(
-      width / 2, 240,
-      'input',
-    );
+    if (this.playerScore !== 0) {
+      this.label = this.add.dom(
+        width / 2, 190,
+        'label',
+        { fontFamily: 'Arial', fontSize: '17px', align: 'center' },
+        'Write your name here\nto save your score\n\n(3 characters minimum)',
+      );
 
-    this.submit = this.add.dom(
-      width / 2, 280,
-      'button',
-      '',
-      'SUBMIT',
-    );
+      this.input = this.add.dom(
+        width / 2, 240,
+        'input',
+      );
 
-    this.cancel = this.add.dom(
-      width / 2, 315,
-      'button',
-      '',
-      'CANCEL',
-    );
+      this.submit = this.add.dom(
+        width / 2, 280,
+        'button',
+        '',
+        'SUBMIT',
+      );
 
-    this.submit.addListener('pointerdown');
-    this.submit.on('pointerdown', async () => {
-      if (!this.blocked) {
-        this.blocked = true;
-        const input = {};
-        input.user = document.getElementsByTagName('input')[0].value;
-        input.score = this.playerScore;
-        const data = validateInput(input);
-        if (data) {
-          const response = await postScore(data);
-          if (response) {
-            this.sys.game.globals.model.allScores = await getScores();
-            this.scene.start('Score');
+      this.cancel = this.add.dom(
+        width / 2, 315,
+        'button',
+        '',
+        'CANCEL',
+      );
+
+      this.submit.addListener('pointerdown');
+      this.submit.on('pointerdown', async () => {
+        if (!this.blocked) {
+          this.blocked = true;
+          const input = {};
+          input.user = document.getElementsByTagName('input')[0].value;
+          input.score = this.playerScore;
+          const data = validateInput(input);
+          if (data) {
+            const response = await postScore(data);
+            if (response) {
+              this.sys.game.globals.model.allScores = await getScores();
+              this.scene.start('Score');
+            }
           }
         }
-      }
-    });
+      });
 
-    this.cancel.addListener('pointerdown');
-    this.cancel.on('pointerdown', async () => {
-      if (!this.blocked) {
-        this.blocked = true;
+      this.cancel.addListener('pointerdown');
+      this.cancel.on('pointerdown', async () => {
+        if (!this.blocked) {
+          this.blocked = true;
+          this.sys.game.globals.model.allScores = await getScores();
+          this.scene.start('Score');
+        }
+      });
+    } else {
+      this.add.text(230, 180, 'Click on the button\nto advance.', {
+        fontFamily: 'Arial',
+        fontSize: '27px',
+        fill: '#000',
+        align: 'center',
+      });
+      this.next = this.add.dom(
+        width / 2, 280,
+        'button',
+        '',
+        'NEXT',
+      );
+
+      this.next.addListener('pointerdown');
+      this.next.on('pointerdown', async () => {
         this.sys.game.globals.model.allScores = await getScores();
         this.scene.start('Score');
-      }
-    });
+      });
+    }
   }
 }
 

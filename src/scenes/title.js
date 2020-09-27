@@ -16,13 +16,13 @@ class Title extends Phaser.Scene {
     this.title2.setScale(3);
 
     // Game
-    this.gameButton = new Button(this, width / 2, height / 2 + 20, 'greenButton1', 'greenButton2', 'Start', 'Game', 3);
+    this.gameButton = new Button(this, width / 2, height / 2 + 20, 'greenButton1', 'greenButton2', 'START', 'Game', 3);
 
     // Options
-    this.optionsButton = new Button(this, width / 2, height / 2 + 75, 'greenButton1', 'greenButton2', 'Options', 'Options', 3);
+    this.optionsButton = new Button(this, width / 2, height / 2 + 75, 'greenButton1', 'greenButton2', 'OPTIONS', 'Options', 3);
 
     // Credits
-    this.creditsButton = new Button(this, width / 2, height / 2 + 130, 'greenButton1', 'greenButton2', 'Credits', 'Credits', 3);
+    this.creditsButton = new Button(this, width / 2, height / 2 + 130, 'greenButton1', 'greenButton2', 'CREDITS', 'Credits', 3);
 
     this.model = this.sys.game.globals.model;
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {

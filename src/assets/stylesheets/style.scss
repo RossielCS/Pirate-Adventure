@@ -12,7 +12,6 @@ body {
   width: fit-content;
   height: fit-content;
   margin: auto;
-  font-family: 'Arial', sans-serif;
 
   div {
     color: rgb(44, 44, 44);
@@ -28,6 +27,7 @@ body {
       margin: 18% auto;
       font-size: 17px;
       pointer-events: auto;
+      font-family: 'Arial', sans-serif;
 
       #tHead {
         display: block;
