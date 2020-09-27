@@ -31,7 +31,7 @@ describe('It should validate the user name and score', () => {
 });
 
 // getScores
-describe('It should returns all users\' scores', () => {
+describe('It should communicate with the API and save or retrieve users\' scores', () => {
   global.fetch = jest.fn(() => Promise.resolve({
     json: () => Promise.resolve({ result: [{ user: 'Bob', score: 250 }] }),
   }));
@@ -45,6 +45,20 @@ describe('It should returns all users\' scores', () => {
     fetch.mockImplementationOnce(() => Promise.reject());
     const scores = await getScores();
 
+    expect(scores).toEqual(false);
+  });
+
+  test('It should save the user\'s score', async () => {
+    fetch.mockImplementationOnce(() => Promise.resolve({
+      json: () => Promise.resolve({ result: 'Leaderboard score created correctly.' }),
+    }));
+    const scores = await postScore({ user: 'Bob', score: 250 });
+    expect(scores).toEqual({ result: 'Leaderboard score created correctly.' });
+  });
+
+  test('It should save the user\'s score', async () => {
+    fetch.mockImplementationOnce(() => Promise.reject());
+    const scores = await postScore({ user: 'Bob', score: 250 });
     expect(scores).toEqual(false);
   });
 });

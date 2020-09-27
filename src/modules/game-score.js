@@ -22,9 +22,12 @@ const postScore = async (data) => {
       },
     }).catch(errHandler);
   }
-  const score = await response.json();
-  if (score.result === 'Leaderboard score created correctly.') {
-    return score;
+
+  if (response) {
+    const score = await response.json();
+    if (score.result === 'Leaderboard score created correctly.') {
+      return score;
+    }
   }
   return false;
 };
@@ -35,14 +38,12 @@ const getScores = async () => {
     method: 'GET',
   }).catch(errHandler);
 
-
   if (response) {
     const scores = await response.json();
     if (scores.result) {
       return scores;
     }
   }
-
   return false;
 };
 
