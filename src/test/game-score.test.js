@@ -1,12 +1,12 @@
+import 'babel-polyfill';
 import {
-  validateInput, sortScores,
+  validateInput, postScore, getScores, sortScores,
 } from '../modules/game-score';
 
-describe('Game Score', () => {
-  const inputTest = {
-    user: 'Alan',
-    score: 740,
-  };
+// validateInput
+describe('It should validate the user name and score', () => {
+  const inputTest = { user: 'Alan', score: 740 };
+  const input = { user: '', score: 740 };
 
   test('It should return an object if the value of user name is different from an empty string', () => {
     const input = {};
@@ -16,35 +16,56 @@ describe('Game Score', () => {
   });
 
   test('It should return false if the value of user name is an empty string', () => {
-    const input = {};
-    input.user = '';
-    input.score = 740;
     expect(validateInput(input)).toBe(false);
   });
 
   test('It should return false if the value of user name it has a length less than three', () => {
-    const input = {};
     input.user = 'Lo';
-    input.score = 740;
     expect(validateInput(input)).toBe(false);
   });
 
   test('It should return false if the value of user score is equal to zero', () => {
-    const input = {};
-    input.user = 'Martha';
     input.score = 0;
     expect(validateInput(input)).toBe(false);
   });
+});
 
+// getScores
+describe('It should returns all users\' scores', () => {
+  global.fetch = jest.fn(() => Promise.resolve({
+    json: () => Promise.resolve({ result: [{ user: 'Bob', score: 250 }] }),
+  }));
+
+  test('It should return all users\' scores', async () => {
+    const scores = await getScores();
+    expect(scores).toEqual({ result: [{ user: 'Bob', score: 250 }] });
+  });
+
+  test('It should return a string if it could not return the scores', async () => {
+    fetch.mockImplementationOnce(() => Promise.reject());
+    const scores = await getScores();
+
+    expect(scores).toEqual(false);
+  });
+});
+
+// sortScores
+describe('It should compare two users\' scores', () => {
   test('It should return -1 if a is greater than b', () => {
-    expect(sortScores(10, 5)).toBe(-1);
+    const a = { score: 10 };
+    const b = { score: 5 };
+    expect(sortScores(a, b)).toBe(-1);
   });
 
   test('It should return 0 if a is equal to b', () => {
-    expect(sortScores(5, 5)).toBe(0);
+    const a = { score: 5 };
+    const b = { score: 5 };
+    expect(sortScores(a, b)).toBe(0);
   });
 
   test('It should return 1 if a is less than b', () => {
-    expect(sortScores(10, 15)).toBe(1);
+    const a = { score: 10 };
+    const b = { score: 15 };
+    expect(sortScores(a, b)).toBe(1);
   });
 });
