@@ -1,6 +1,6 @@
 const validateInput = (input) => {
   const data = {};
-  if (input.user !== '' && input.user.length > 2) {
+  if (input.user !== '' && input.user.length > 2 && input.score !== 0) {
     data.user = input.user;
     data.score = input.score;
     return data;
@@ -8,7 +8,7 @@ const validateInput = (input) => {
   return false;
 };
 
-const errHandler = () => new Response(JSON.stringify({ message: 'City not found.' }));
+const errHandler = () => new Response(JSON.stringify({ message: 'The score could not be saved.' }));
 
 const postScore = async (data) => {
   let response = '';
