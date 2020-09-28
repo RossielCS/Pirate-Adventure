@@ -1,6 +1,13 @@
 # Pirate Adventure
+This project consist on building a video game using JavaScript and the game engine Phaser.
+
+The game is about a pirate tha needs to collect the red diamonds that appear over the plarforms while jumping between then and avoiding to fall.
 
 ## Screenshot
+<img src="src\assets\images\screenshot-01.png" alt="screenshot" width="600"/>
+<img src="src\assets\images\screenshot-02.png" alt="screenshot" width="600"/>
+<img src="src\assets\images\screenshot-03.png" alt="screenshot" width="600"/>
+<img src="src\assets\images\screenshot-04.png" alt="screenshot" width="600"/>
 
 ## :earth_americas: Live Demo
 
@@ -42,7 +49,22 @@ To run the project:
 
 ### :video_game: How to play
 
+- Once you run the project you should see three green buttons:
+ 1. START (to start the game).
+ 2. OPTIONS (to deactivate the background music).
+ 3. CREDITS.
+- Click on start.
+- To play you only need to use the cursor buttons up :arrow_up_small: to jump and right :arrow_forward: or left :arrow_backward: to move the player.
+- The main objective is to collect the red diamonds.
+- Each diamond will give a score of 10 points.
+- If you fall from the platforms you will lose.
+
 ## :gem:  Features
+* The user que save the score by providing an user name.
+* It has a leaderboard.
+* Has background music.
+* The user can deactivate the background music.
+* The user can restart the game.
 
 ## :memo: Tests
 - It contains unit tests for:
