@@ -5,7 +5,7 @@ Pirate Adventure.
 
 ## Game Overview
 ### Concept
-The player controls the movements of a pirate to help him collecting diamongd along the way, while jumping between platforms to avoid falling into the sea.
+The player controls the movements of a pirate to help him collecting diamonds along the way while jumping between platforms to avoid falling into the sea.
 
 ### Genre 
 Action, platform, casual.
@@ -33,9 +33,9 @@ For all ages.
 ### Mechanics
 - The player earns 10 points each time the pirate overlaps a red diamond.
 - The red diamond is removed from the scene once is collected by the player.
-- The platforms has a constant movement from right to left and also appears randomly inside a delimited space.
-- The player counts with double jump.
-- If the player falls of one of the platforms, the game ends.
+- The platforms have a constant movement from right to left and also appear randomly inside a delimited space.
+- The player counts with a double jump.
+- If the player falls off one of the platforms, the game ends.
 
 ## Story and Character
 ### Story
@@ -58,4 +58,4 @@ The player can move the character using the keyboard cursors.
 3. Left: It makes the character to run to the left.
 
 ### Audio
-Background music to create a 8-bit action game environment by [Fesliyan Studios](https://www.fesliyanstudios.com/). 
+Background music to create an 8-bit action game environment by [Fesliyan Studios](https://www.fesliyanstudios.com/). 
