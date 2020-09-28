@@ -18,14 +18,4 @@ const config = {
   },
 };
 
-const gameOptions = {
-  platformStartSpeed: 350,
-  spawnRange: [100, 350],
-  platformSizeRange: [50, 250],
-  playerGravity: 600,
-  jumpForce: 600,
-  playerStartPosition: 200,
-  jumps: 2,
-};
-
-export { config, gameOptions };
+export default config;

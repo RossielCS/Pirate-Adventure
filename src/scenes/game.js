@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import { gameOptions } from '../config/config';
 import createPlatform from '../game-objects/platform';
 import createGem from '../game-objects/gem';
 import createCloud from '../game-objects/cloud';
@@ -60,7 +59,7 @@ class Game extends Phaser.Scene {
     this.player.anims.play('idle', true);
 
     this.player.setOrigin(0, 0);
-    this.player.setGravityY(gameOptions.playerGravity);
+    this.player.setGravityY(600);
     this.player.doubleJump = null;
     this.player.setScale(1.3);
     this.player.body.setSize(25, 25);

@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import './assets/stylesheets/style.scss';
-import { config } from './config/config';
+import config from './config/config';
 import Boot from './scenes/boot';
 import Preloader from './scenes/preloader';
 import Options from './scenes/options';
