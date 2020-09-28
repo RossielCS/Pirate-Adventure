@@ -4,10 +4,10 @@ This project consists of building a video game using JavaScript and the game eng
 The game is about a pirate that needs to collect the red diamonds that appear over the platforms while jumping between them and avoiding to fall.
 
 ## Screenshot
-<img src="src\assets\images\screenshot-01.png" alt="screenshot" width="600"/>
-<img src="src\assets\images\screenshot-02.png" alt="screenshot" width="600"/>
-<img src="src\assets\images\screenshot-03.png" alt="screenshot" width="600"/>
-<img src="src\assets\images\screenshot-04.png" alt="screenshot" width="600"/>
+<img src="src\assets\images\screenshot-01.PNG" alt="screenshot" width="600"/>
+<img src="src\assets\images\screenshot-02.PNG" alt="screenshot" width="600"/>
+<img src="src\assets\images\screenshot-03.PNG" alt="screenshot" width="600"/>
+<img src="src\assets\images\screenshot-04.PNG" alt="screenshot" width="600"/>
 
 ## :earth_americas: Live Demo
 
@@ -25,6 +25,9 @@ You can try it [here](https://rossielcs-pirate-adventure.netlify.app/).
 - JavaScript,
 - Semantic-Ui,
 - Visual Studio Code
+
+## Game Design Document
+To read it, click [here](game-design-document.md).
 
 ## :computer: Getting Started
 

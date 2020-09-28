@@ -19,16 +19,16 @@ For all ages.
 ## Gameplay and Mechanics
 ### Scenes
 1. Title: Displays three options for the user which are start to initialize the game, options to deactivate the background music and credits to display the game's credits.
-<img src="src\assets\images\screenshot-01.png" alt="screenshot" width="600"/>    
+<img src="src\assets\images\screenshot-01.PNG" alt="screenshot" width="600"/>    
 
 2. Game: It is the game itself.     
-<img src="src\assets\images\screenshot-02.png" alt="screenshot" width="600"/>     
+<img src="src\assets\images\screenshot-02.PNG" alt="screenshot" width="600"/>     
 
 3. Game Over: Displays the score of the user and provides a form so the user can save the score.     
-<img src="src\assets\images\screenshot-03.png" alt="screenshot" width="600"/>     
+<img src="src\assets\images\screenshot-03.PNG" alt="screenshot" width="600"/>     
 
 4. Leaderboard: Shows all the users' scores and two options so the user can restart the game or go to the title scene again.    
-<img src="src\assets\images\screenshot-04.png" alt="screenshot" width="600"/>      
+<img src="src\assets\images\screenshot-04.PNG" alt="screenshot" width="600"/>      
 
 ### Mechanics
 - The player earns 10 points each time the pirate overlaps a red diamond.
