@@ -9,10 +9,14 @@ class Game extends Phaser.Scene {
     super('Game');
   }
 
+  updateScore() {
+    this.score += 10;
+  }
+
   // eslint-disable-next-line class-methods-use-this
   collectGem(_player, gem) {
     gem.disableBody(true, true);
-    this.score += 10;
+    this.updateScore();
     this.scoreText.setText(`${this.score}`);
   }
 

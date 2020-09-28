@@ -41,6 +41,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "jest-canvas-mock": "^2.2.0",
     "phaser": "^3.24.1"
   }
 }
