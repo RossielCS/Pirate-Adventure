@@ -99,7 +99,8 @@ Give an ⭐️ if you like this project!
 
 ## Acknowledgments
 
-Assets designed by [Pixel Frog](https://pixelfrog-store.itch.io/).
+Assets designed by [Pixel Frog](https://pixelfrog-store.itch.io/).   
+Background music by [Fesliyan Studios](https://www.fesliyanstudios.com/). 
 
 ## 📝  License
 
