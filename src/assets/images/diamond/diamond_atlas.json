@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "filename": "01",
+            "frame": {
+                "w": 24,
+                "h": 24,
+                "x": 0,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "02",
+            "frame": {
+                "w": 24,
+                "h": 24,
+                "x": 0,
+                "y": 24
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "03",
+            "frame": {
+                "w": 24,
+                "h": 24,
+                "x": 0,
+                "y": 48
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "04",
+            "frame": {
+                "w": 24,
+                "h": 24,
+                "x": 0,
+                "y": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "011",
+            "frame": {
+                "w": 24,
+                "h": 24,
+                "x": 0,
+                "y": 96
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "021",
+            "frame": {
+                "w": 24,
+                "h": 24,
+                "x": 0,
+                "y": 120
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "031",
+            "frame": {
+                "w": 24,
+                "h": 24,
+                "x": 0,
+                "y": 144
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "041",
+            "frame": {
+                "w": 24,
+                "h": 24,
+                "x": 0,
+                "y": 168
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

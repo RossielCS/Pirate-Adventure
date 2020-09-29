@@ -1,0 +1,62 @@
+@import 'reset';
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#content {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+
+  div {
+    color: rgb(44, 44, 44);
+    font-weight: bold;
+
+    input,
+    button {
+      height: 30px;
+      width: 200px;
+    }
+
+    table {
+      margin: 18% auto;
+      font-size: 17px;
+      pointer-events: auto;
+      font-family: 'Arial', sans-serif;
+
+      #tHead {
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+
+        tr {
+          th {
+            min-width: 100px;
+          }
+        }
+      }
+
+      #tBody {
+        display: block;
+        overflow: auto;
+        max-height: 170px;
+
+        tr {
+          height: 30px;
+          line-height: 30px;
+          border-bottom: 1px solid rgb(44, 44, 44);
+
+          td {
+            padding-left: 15px;
+            min-width: 120px;
+          }
+        }
+      }
+    }
+  }
+}

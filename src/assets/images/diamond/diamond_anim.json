@@ -1,0 +1,52 @@
+{
+    "anims": [
+        {
+            "key": "collect",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 9,
+            "frames": [
+                {
+                    "key": "diamond",
+                    "frame": "011"
+                },
+                {
+                    "key": "diamond",
+                    "frame": "021"
+                },
+                {
+                    "key": "diamond",
+                    "frame": "031"
+                },
+                {
+                    "key": "diamond",
+                    "frame": "041"
+                }
+            ]
+        },
+        {
+            "key": "rotate",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 9,
+            "frames": [
+                {
+                    "key": "diamond",
+                    "frame": "01"
+                },
+                {
+                    "key": "diamond",
+                    "frame": "02"
+                },
+                {
+                    "key": "diamond",
+                    "frame": "03"
+                },
+                {
+                    "key": "diamond",
+                    "frame": "04"
+                }
+            ]
+        }
+    ]
+}

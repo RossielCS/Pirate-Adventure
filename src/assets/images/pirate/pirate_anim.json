@@ -1,0 +1,112 @@
+{
+    "anims": [
+        {
+            "key": "ground",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "pirate",
+                    "frame": "ground_01"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "ground_02"
+                }
+            ]
+        },
+        {
+            "key": "fall",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "pirate",
+                    "frame": "fall_01"
+                }
+            ]
+        },
+        {
+            "key": "jump",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "pirate",
+                    "frame": "jump_01"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "jump_02"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "jump_03"
+                }
+            ]
+        },
+        {
+            "key": "run",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "pirate",
+                    "frame": "run_01"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "run_06"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "run_02"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "run_03"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "run_04"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "run_05"
+                }
+            ]
+        },
+        {
+            "key": "idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "pirate",
+                    "frame": "idle_01"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "idle_02"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "idle_03"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "idle_04"
+                },
+                {
+                    "key": "pirate",
+                    "frame": "idle_05"
+                }
+            ]
+        }
+    ]
+}
